@@ -2,13 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Admin Dashboard</title>
+<title>Dashboard</title>
 
 <style>
-
-*{
-box-sizing:border-box;
-}
 
 body{
 margin:0;
@@ -17,8 +13,6 @@ background:#0f0f0f;
 color:white;
 display:flex;
 }
-
-/* SIDEBAR */
 
 .sidebar{
 width:220px;
@@ -46,8 +40,6 @@ border-radius:6px;
 background:#6c5ce7;
 }
 
-/* MAIN */
-
 .main{
 flex:1;
 padding:30px;
@@ -56,11 +48,22 @@ padding:30px;
 .topbar{
 display:flex;
 justify-content:space-between;
-align-items:center;
 margin-bottom:40px;
 }
 
-/* BUTTON */
+.cards{
+display:flex;
+gap:20px;
+}
+
+.card{
+background:#1e1e1e;
+padding:30px;
+border-radius:10px;
+width:200px;
+text-align:center;
+font-size:20px;
+}
 
 button{
 padding:8px 15px;
@@ -72,22 +75,6 @@ cursor:pointer;
 margin-left:10px;
 }
 
-/* CARDS */
-
-.cards{
-display:flex;
-gap:20px;
-}
-
-.card{
-background:#1e1e1e;
-padding:30px;
-border-radius:10px;
-width:220px;
-text-align:center;
-font-size:20px;
-}
-
 </style>
 </head>
 
@@ -97,11 +84,11 @@ font-size:20px;
 
 <h2 id="panelTitle">Admin Panel</h2>
 
-<a id="navDashboard" href="#">Dashboard</a>
-<a id="navUsers" href="#">Users</a>
-<a id="navAdmins" href="#">Admins</a>
-<a id="navSettings" href="#">Settings</a>
-<a id="navLogout" href="/login.html">Logout</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="users.html">Users</a>
+<a href="admins.html">Admins</a>
+<a href="settings.html">Settings</a>
+<a href="index.html">Logout</a>
 
 </div>
 
@@ -122,17 +109,17 @@ font-size:20px;
 
 <div class="card">
 <h2>120</h2>
-<p id="usersText">Users</p>
+<p id="t1">Users</p>
 </div>
 
 <div class="card">
 <h2>5</h2>
-<p id="adminsText">Admins</p>
+<p id="t2">Admins</p>
 </div>
 
 <div class="card">
 <h2>32</h2>
-<p id="activeText">Active</p>
+<p id="t3">Active</p>
 </div>
 
 </div>
@@ -143,43 +130,25 @@ font-size:20px;
 
 function setLang(lang){
 
-if(lang === "ar"){
+if(lang==="ar"){
 
-document.documentElement.lang = "ar"
-document.body.style.direction = "rtl"
-
-document.getElementById("title").innerText = "لوحة التحكم"
-document.getElementById("panelTitle").innerText = "لوحة الإدارة"
-
-document.getElementById("navDashboard").innerText = "الرئيسية"
-document.getElementById("navUsers").innerText = "المستخدمين"
-document.getElementById("navAdmins").innerText = "الأدمن"
-document.getElementById("navSettings").innerText = "الإعدادات"
-document.getElementById("navLogout").innerText = "تسجيل الخروج"
-
-document.getElementById("usersText").innerText = "المستخدمين"
-document.getElementById("adminsText").innerText = "الأدمن"
-document.getElementById("activeText").innerText = "النشطين"
+document.body.style.direction="rtl"
+document.getElementById("title").innerText="لوحة التحكم"
+document.getElementById("panelTitle").innerText="لوحة الإدارة"
+document.getElementById("t1").innerText="المستخدمين"
+document.getElementById("t2").innerText="الأدمن"
+document.getElementById("t3").innerText="النشطين"
 
 }
 
-if(lang === "en"){
+if(lang==="en"){
 
-document.documentElement.lang = "en"
-document.body.style.direction = "ltr"
-
-document.getElementById("title").innerText = "Dashboard"
-document.getElementById("panelTitle").innerText = "Admin Panel"
-
-document.getElementById("navDashboard").innerText = "Dashboard"
-document.getElementById("navUsers").innerText = "Users"
-document.getElementById("navAdmins").innerText = "Admins"
-document.getElementById("navSettings").innerText = "Settings"
-document.getElementById("navLogout").innerText = "Logout"
-
-document.getElementById("usersText").innerText = "Users"
-document.getElementById("adminsText").innerText = "Admins"
-document.getElementById("activeText").innerText = "Active"
+document.body.style.direction="ltr"
+document.getElementById("title").innerText="Dashboard"
+document.getElementById("panelTitle").innerText="Admin Panel"
+document.getElementById("t1").innerText="Users"
+document.getElementById("t2").innerText="Admins"
+document.getElementById("t3").innerText="Active"
 
 }
 
