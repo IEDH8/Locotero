@@ -2,51 +2,70 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>Admin System</title>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0FVQBTKJNM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<title>Locotero</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  gtag('config', 'G-0FVQBTKJNM');
-</script>
 <style>
 
 body{
+margin:0;
 font-family:Arial;
 background:#0f0f0f;
 color:white;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-margin:0;
 }
 
-.box{
-background:#1e1e1e;
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+background:#181818;
+}
+
+.logo{
+font-size:24px;
+font-weight:bold;
+color:#9b5cff;
+}
+
+.lang select{
+background:#222;
+color:white;
+border:none;
+padding:6px;
+border-radius:5px;
+}
+
+.container{
 padding:40px;
+max-width:900px;
+margin:auto;
+}
+
+.card{
+background:#1c1c1c;
+padding:25px;
 border-radius:10px;
-text-align:center;
-width:300px;
+margin-bottom:25px;
 }
 
 input{
-width:90%;
-padding:10px;
-margin:10px;
+width:100%;
+padding:12px;
+margin-top:10px;
 border:none;
-border-radius:5px;
+border-radius:6px;
+background:#2a2a2a;
+color:white;
 }
 
 button{
+margin-top:15px;
 padding:10px 20px;
-background:#6c5ce7;
-color:white;
+background:#9b5cff;
 border:none;
-border-radius:5px;
+border-radius:6px;
+color:white;
 cursor:pointer;
 }
 
@@ -55,42 +74,44 @@ cursor:pointer;
 
 <body>
 
-<div class="box">
+<div class="topbar">
+<div class="logo">Locotero</div>
 
-<h2>Login / تسجيل الدخول</h2>
+<div class="lang">
+<select onchange="changeLang(this.value)">
+<option value="ar">العربية</option>
+<option value="en">English</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option value="de">Deutsch</option>
+<option value="ru">Русский</option>
+<option value="zh">中文</option>
+<option value="ja">日本語</option>
+</select>
+</div>
+</div>
 
-<input id="username" type="text" placeholder="Username">
+<div class="container">
 
-<input id="password" type="password" placeholder="Password">
+<div class="card">
+<h1 id="title">منصة Locotero للروايات</h1>
+<p id="desc">أفضل مكان لقراءة الروايات والقصص</p>
+</div>
 
-<button onclick="login()">Login</button>
+<div class="card">
+
+<h2 id="login">تسجيل الدخول</h2>
+
+<input placeholder="Username">
+<input type="password" placeholder="Password">
+
+<button onclick="location.href='dashboard.html'">Login</button>
 
 </div>
 
-<script>
+</div>
 
-function login(){
-
-let user=document.getElementById("username").value
-let pass=document.getElementById("password").value
-
-if(user==="owner" && pass==="123"){
-localStorage.setItem("role","owner")
-window.location="dashboard.html"
-}
-
-else if(user==="admin" && pass==="123"){
-localStorage.setItem("role","admin")
-window.location="dashboard.html"
-}
-
-else{
-alert("Wrong login")
-}
-
-}
-
-</script>
+<script src="lang.js"></script>
 
 </body>
 </html>
