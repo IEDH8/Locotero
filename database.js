@@ -47,3 +47,36 @@ document.getElementById("title").innerText=story.title
 document.getElementById("content").innerText=story.content
 
 }
+function search(){
+
+let q = document.getElementById("search").value.toLowerCase()
+
+let container = document.getElementById("stories")
+
+container.innerHTML=""
+
+stories.forEach((s,i)=>{
+
+if(s.title.toLowerCase().includes(q)){
+
+let div=document.createElement("div")
+
+div.className="story"
+
+div.innerHTML="<h3>"+s.title+"</h3>"
+
+div.onclick=()=>{
+
+localStorage.setItem("currentStory",i)
+
+location.href="story.html"
+
+}
+
+container.appendChild(div)
+
+}
+
+})
+
+}
